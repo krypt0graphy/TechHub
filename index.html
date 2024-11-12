@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body data-page="index">
+<header>
+    <!--Navigation Bar-->
+    <div class="navbar">
+        <div class="links">
+            <a href="index.html" class="active">Main</a>
+            <a href="posts.html">Posts</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</header>
+    <div class="about-text">
+        <h3>
+            About:
+        </h3>
+        <br>
+        <p>
+            This is a blog with blog posts in it, how cool is that
+        </p>
+
+    </div>
+
+    <div class="latest-posts">
+        <div class="post latest" id="latest-post-1">
+            <img src="" alt="Post image" id="post-image-1">
+            <h3 id="post-title-1"></h3>
+            <small id="post-date-1"></small>
+        </div>
+        <div class="post second" id="latest-post-2">
+            <img src="" alt="Post image" id="post-image-2">
+            <h3 id="post-title-2"></h3>
+            <small id="post-date-2"></small>
+        </div>
+        <div class="post third" id="latest-post-3">
+            <img src="" alt="Post image" id="post-image-3">
+            <h3 id="post-title-3"></h3>
+            <small id="post-date-3"></small>
+        </div>
+
+
+    </div>
+<script src="site.js" defer></script>
+
+</body>
+</html>

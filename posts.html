@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body data-page="posts">
+<header>
+    <!--Navigation Bar-->
+    <div class="navbar">
+        <div class="links">
+            <a href="index.html">Main</a>
+            <a href="posts.html" class="active">Posts</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</header>
+<div class="posts-page">
+    <div class="posts-list">
+        <ul id="posts-list">
+        <!-- JS will populate list with <li>s with <a>s inside them-->
+        </ul>
+    </div>
+        <div id="selected-post">
+        <!-- Use Javascript to show image, in original aspect ratio but fixed res, title, date and content -->
+        <!-- Close button to hide post pane or deselect post -->
+
+        <h3 id="post-title"></h3>
+        <small id="post-date"></small>
+        <br>
+        <p id="content"></p>
+    </div>
+</div>
+
+<div class="comments">
+    <!-- Text box to take name and a comment pinned to the top-->
+    <!-- Use JS to create a new document in the "comments" collection with current time, the user's name and their comment-->
+    <!-- Display all past comments in a column -->
+</div>
+
+<script src="site.js" defer></script>
+</body>
+</html>

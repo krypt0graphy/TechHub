@@ -1,0 +1,224 @@
+body {font: 1.2em "Trebuchet MS", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #bbabe1;
+}
+
+
+/* Navigation bar style */
+.navbar {
+    height: 8%;
+    max-width: 100%;
+    font: 1.2em "Trebuchet MS", sans-serif;
+    border: 0;
+    border-bottom: dashed 2px white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+/* the style for the first 3 links*/
+
+.link {
+    margin: 3%;
+    display: flex;
+    gap: 15px;
+    border-radius: 8px;
+}
+/* style for the link buttons */
+
+.navbar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+/* on hover change color of button */
+
+.navbar a:hover {
+    color: #3000a2;
+}
+/* active tab's button is underlined, hardcoded into the html */
+
+.navbar a.active {
+    font-weight: bold;
+    text-decoration: underline solid white 2px;
+}
+
+.about-text {
+    color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.about-text h3 {
+    margin-bottom: 0;
+}
+
+.about-text p {
+    font-style: italic;
+    margin: 10px;
+}
+
+.latest-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 2%;
+}
+
+@media (max-width: 768px) {
+    .latest-posts {
+        grid-template-columns: 1fr;
+    }
+}
+
+.post {
+    border: 1px solid white;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: mediumpurple;
+    text-align: center;
+    color: white;
+    height: 400px;
+}
+
+.post img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.post h3,
+.post small {
+    margin: 10px;
+}
+
+.post h3 {
+    font-size: 1.25em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.contacts {
+    display: flex;
+}
+
+.contact-list {
+    background: #d9ccf9;
+    padding: 1%;
+    margin: 3% 0 3% 3%;;
+    border-radius: 8px;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.contact-list .icon {
+    fill: white;
+}
+.contact-links {
+    background: #d9ccf9;
+    padding: 1%;
+    margin: 3% 0 3% 1%;
+    border-radius: 8px;
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+.contact-links a {
+    padding: 1%;
+}
+
+.posts-list {
+    display: block;
+    min-height: 100%;
+    width: 20%;
+    border-right: white solid 1px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    text-align: left;
+    color: white;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .posts-list {
+        width: 100%;
+        border-bottom: white 1px solid;
+        position: relative;
+        margin-bottom: 10px;
+    }
+}
+.posts-list ul {
+    list-style: none;
+}
+.posts-list ul li {
+    margin-bottom: 10px;
+}
+.posts-list a {
+    color: white;
+}
+
+#selected-post {
+    width: 80%;
+    border: 1px solid white;
+    padding: 5px;
+    background-color: mediumpurple;
+    text-align: center;
+    color: white;
+    display: block;
+    margin: 20px 20px 20px 10px;
+    overflow-y: scroll;
+}
+@media (max-width: 768px) {
+    #selected-post {
+        margin: 10px 20px 20px;
+        height: auto;
+        width: auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+}
+
+#selected-post img {
+    width: 70%;
+    height: auto;
+}
+
+#selected-post h3 {
+    font-size: 1.25em;
+    white-space: nowrap;
+    margin-bottom: 2px;
+}
+
+#content {
+    text-align: left;
+    margin-left: 5px;
+}
+
+.posts-page {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .posts-page {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
