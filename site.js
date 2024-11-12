@@ -41,6 +41,11 @@ async function getLatestPosts() {
             if (imgElem) imgElem.src = post.image || 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/1022px-Placeholder_view_vector.svg.png?20220519031949';
             if (titleElem) titleElem.textContent = post.title || 'No Title';
             if (dateElem) dateElem.textContent = post.date.toDate().toLocaleDateString()|| 'No Date';
+
+            const postDiv = document.getElementById(`latest-post-${index + 1}`);
+            postDiv.addEventListener('click', () => {
+                window.location.href = `posts.html?postId=${post.id}`;
+            })
         });
     } catch (error) {
         console.error("Error fetching posts: ", error);
@@ -76,7 +81,7 @@ async function populateList() {
                 if (document.getElementById('post-image')) {
                     document.getElementById('post-image').remove();
                 }
-
+                window.location.href = `posts.html?postId=${post.id}`;
                 displayPostById(post.id);
             });
 
@@ -94,45 +99,54 @@ async function populateList() {
 }
 
 async function displayPostById(postId) {
-    console.log(postId)
     try {
         const selectedPost = await db.collection('Blogposts')
             .where('id', '==', postId)  // Match the 'id' field in the document
             .get();
+
         const doc = selectedPost.docs[0];
 
         if (!selectedPost.empty) {
-            post = doc.data();
+            const post = doc.data();
 
             document.getElementById('post-title').textContent = post.title || 'No Title';
             document.getElementById('post-date').textContent = post.date ? post.date.toDate().toLocaleDateString() : 'No Date';
-            document.getElementById('content').textContent = post.content || 'No Content Available';
+            let postContent = post.content.replaceAll('\\n', '<br>');
+            document.getElementById('content').innerHTML = postContent|| 'No Content Available';
             const selectedPostDiv = document.getElementById('selected-post');
 
             if (post.image) {
                 const imgElem = document.createElement('img');
                 imgElem.id = 'post-image';
                 imgElem.src = post.image;
-                selectedPostDiv.appendChild(imgElem)
+                selectedPostDiv.appendChild(imgElem);
             }
 
             selectedPostDiv.scrollIntoView({ behavior: 'smooth' });
         } else {
-            console.log('No post found!')
+            console.log('No post found!');
         }
-
     } catch (error) {
         console.error("Error fetching post by ID:", error);
     }
 }
 
+function getPostIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('postId');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const page = document.body.getAttribute('data-page')
+    const postId = getPostIdFromUrl();
+
     if (page == 'posts') {
         populateList()
     }
     if (page == 'index') {
         getLatestPosts();
+    }
+    if (postId) {
+        displayPostById(postId);
     }
 });

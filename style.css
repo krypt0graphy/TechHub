@@ -2,7 +2,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #bbabe1;
+    background-color: #ecf0f1;
 }
 
 
@@ -12,7 +12,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     max-width: 100%;
     font: 1.2em "Trebuchet MS", sans-serif;
     border: 0;
-    border-bottom: dashed 2px white;
+    border-bottom: solid 2px #1e2a3a;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +29,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 /* style for the link buttons */
 
 .navbar a {
-    color: white;
+    color: #1e2a3a;
     padding: 10px;
     text-decoration: none;
 }
@@ -42,11 +42,11 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 
 .navbar a.active {
     font-weight: bold;
-    text-decoration: underline solid white 2px;
+    text-decoration: underline solid #1e2a3a 2px;
 }
 
 .about-text {
-    color: white;
+    color: #1e2a3a;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -74,13 +74,14 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 }
 
 .post {
-    border: 1px solid white;
+    border: 2px solid #1e2a3a;
     padding: 15px;
-    border-radius: 8px;
-    background-color: mediumpurple;
+    border-radius: 5px;
+    background-color: #8fa9c2;
     text-align: center;
-    color: white;
+    color: #1e2a3a;
     height: 400px;
+    box-shadow: inset -6px -6px #8fa9c2, inset 6px 6px #8fa9c2, inset 8px 8px #1e2a3a, inset -8px -8px #1e2a3a
 }
 
 .post img {
@@ -109,7 +110,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 }
 
 .contact-list {
-    background: #d9ccf9;
+    background: #8fa9c2;
     padding: 1%;
     margin: 3% 0 3% 3%;;
     border-radius: 8px;
@@ -121,10 +122,10 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 
 
 .contact-list .icon {
-    fill: white;
+    fill: #1e2a3a;
 }
 .contact-links {
-    background: #d9ccf9;
+    background: #8fa9c2;
     padding: 1%;
     margin: 3% 0 3% 1%;
     border-radius: 8px;
@@ -141,11 +142,12 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     display: block;
     min-height: 100%;
     width: 20%;
-    border-right: white solid 1px;
+    border-right: #1e2a3a solid 2px;
     overflow-y: auto;
+    overflow-x: hidden;
     box-sizing: border-box;
     text-align: left;
-    color: white;
+    color: #1e2a3a;
     position: sticky;
     top: 0;
     bottom: 0;
@@ -155,7 +157,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 @media (max-width: 768px) {
     .posts-list {
         width: 100%;
-        border-bottom: white 1px solid;
+        border-bottom: #1e2a3a 2px solid;
         position: relative;
         margin-bottom: 10px;
     }
@@ -167,19 +169,21 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     margin-bottom: 10px;
 }
 .posts-list a {
-    color: white;
+    color: #1e2a3a;
 }
 
 #selected-post {
     width: 80%;
-    border: 1px solid white;
-    padding: 5px;
-    background-color: mediumpurple;
+    border: 2px solid #1e2a3a;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #8fa9c2;
     text-align: center;
-    color: white;
+    color: #1e2a3a;
     display: block;
     margin: 20px 20px 20px 10px;
     overflow-y: scroll;
+    box-shadow: inset -6px -6px #8fa9c2, inset 6px 6px #8fa9c2, inset 8px 8px #1e2a3a, inset -8px -8px #1e2a3a
 }
 @media (max-width: 768px) {
     #selected-post {
