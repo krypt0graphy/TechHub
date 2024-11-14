@@ -292,6 +292,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     text-align: right;
     font-size: 0.7em;
     color: slategray;
+    margin-left: 5px;
 }
 .comment .commentbody {
     text-align: left;

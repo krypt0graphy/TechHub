@@ -173,16 +173,13 @@ async function submitComment() {
 }
 
 async function displayComments() {
-    /* Loop through all comment files
-    * Create comment class with id of the comment id
-    * Make a blockquote with a span with author, span with date, p with the body content
-    * Place it in the commentlist element*/
     const commentList = document.getElementById('commentlist');
     commentList.innerHTML = '';
 
     const commentsQuery = await db.collection('GeneralComments').get();
+    const displayOrder = commentsQuery.docs.reverse();
 
-    commentsQuery.forEach((doc) => {
+    displayOrder.forEach((doc) => {
         const commentDoc = doc.data();
 
         const commentDiv = document.createElement('div');
@@ -193,7 +190,7 @@ async function displayComments() {
 
         const authorSpan = document.createElement('span');
         authorSpan.className = 'author';
-        authorSpan.textContent = commentDoc.author;
+        authorSpan.textContent = commentDoc.author[0].toUpperCase() + commentDoc.author.slice(1).trimEnd();
 
         const dateSpan = document.createElement('span');
         dateSpan.className = 'date'
