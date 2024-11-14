@@ -287,6 +287,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 .comment .author {
     text-align: left;
     margin-bottom: 5px;
+    text-transform: capitalize;
 }
 .comment .date {
     text-align: right;

@@ -190,7 +190,7 @@ async function displayComments() {
 
         const authorSpan = document.createElement('span');
         authorSpan.className = 'author';
-        authorSpan.textContent = commentDoc.author[0].toUpperCase() + commentDoc.author.slice(1).trimEnd();
+        authorSpan.textContent = commentDoc.author.trimEnd();
 
         const dateSpan = document.createElement('span');
         dateSpan.className = 'date'
