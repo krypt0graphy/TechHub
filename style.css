@@ -250,7 +250,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     height: 1em;
 }
 
-.form .comment {
+.form .commentbox {
     height: 5em;
     width: 70%;
     margin-left: auto;
@@ -261,4 +261,41 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     width: 10%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.commentlist {
+    margin-right: auto;
+    margin-left: auto;
+    flex: 1;
+    overflow: auto;
+}
+
+.comment {
+    margin: 10px auto;
+    max-width: 70%;
+    overflow-wrap: break-word;
+    text-align: left;
+    position: relative;
+    border: 2px solid #1e2a3a;
+    border-radius: 5px;
+}
+
+.comment blockquote {
+    margin-bottom: 5px;
+}
+
+.comment .author {
+    text-align: left;
+    margin-bottom: 5px;
+}
+.comment .date {
+    text-align: right;
+    font-size: 0.7em;
+    color: slategray;
+}
+.comment .commentbody {
+    text-align: left;
+    margin-top: 0;
+    font-size: 0.85em;
+
 }

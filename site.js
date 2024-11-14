@@ -101,7 +101,7 @@ async function populateList() {
 async function displayPostById(postId) {
     try {
         const selectedPost = await db.collection('Blogposts')
-            .where('id', '==', postId)  // Match the 'id' field in the document
+            .where('id', '==', postId)
             .get();
 
         const doc = selectedPost.docs[0];
@@ -131,6 +131,88 @@ async function displayPostById(postId) {
     }
 }
 
+
+function clearComment() {
+    location.reload()
+    author = '';
+    commentBody = '';
+}
+
+
+async function submitComment() {
+    /* new doc with ID CXX, author, current date, comment body*/
+    const author = document.getElementById("author").value;
+    const commentBody = document.getElementById("commentbox").value;
+    const date = new Date().toLocaleDateString()
+
+    const commentsRef = db.collection('GeneralComments');
+    const latestDoc = await commentsRef.orderBy('id', 'desc').limit(1).get();
+
+    let newId;
+    if (!latestDoc.empty) {
+        const lastId = latestDoc.docs[0].id;
+        const lastNum = parseInt(lastId.replace('C', ''), 10);
+        newId = 'C' + String(lastNum + 1).padStart(2, '0');
+        console.log(newId)
+
+    } else {
+        newId="C01"
+        console.log(newId)
+    }
+
+    await commentsRef.doc(newId).set({
+        author: author,
+        date: date,
+        comment: commentBody,
+        id: newId
+    });
+
+    alert("Comment submitted!");
+    clearComment();
+
+}
+
+async function displayComments() {
+    /* Loop through all comment files
+    * Create comment class with id of the comment id
+    * Make a blockquote with a span with author, span with date, p with the body content
+    * Place it in the commentlist element*/
+    const commentList = document.getElementById('commentlist');
+    commentList.innerHTML = '';
+
+    const commentsQuery = await db.collection('GeneralComments').get();
+
+    commentsQuery.forEach((doc) => {
+        const commentDoc = doc.data();
+
+        const commentDiv = document.createElement('div');
+        commentDiv.className = 'comment';
+        commentDiv.id = commentDoc.id;
+
+        const blockquote = document.createElement('blockquote');
+
+        const authorSpan = document.createElement('span');
+        authorSpan.className = 'author';
+        authorSpan.textContent = commentDoc.author;
+
+        const dateSpan = document.createElement('span');
+        dateSpan.className = 'date'
+        dateSpan.textContent = commentDoc.date;
+
+        const commentBody = document.createElement('p');
+        commentBody.className = 'commentbody';
+        commentBody.textContent = commentDoc.comment;
+
+        blockquote.appendChild(authorSpan);
+        blockquote.appendChild(dateSpan);
+        blockquote.appendChild(commentBody);
+
+        commentDiv.appendChild(blockquote);
+        document.getElementById('commentlist').appendChild(commentDiv);
+    });
+
+}
+
 function getPostIdFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('postId');
@@ -145,6 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (page == 'index') {
         getLatestPosts();
+        document.getElementById('submit').addEventListener('click', submitComment);
+        displayComments();
     }
     if (postId) {
         displayPostById(postId);

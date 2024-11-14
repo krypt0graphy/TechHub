@@ -56,14 +56,15 @@
     </div>
 
     <div id="comments">
+        <h3>Leave a comment!</h3>
         <div class="form">
-        <textarea class="name" name="name" placeholder="Name..." maxlength="50"></textarea>
-        <textarea class="comment" name="comment" placeholder="Your comment..." maxlength="300"></textarea>
-        <input class="submit" type="submit" value="Submit">
+        <textarea id="author" class="name" name="name" placeholder="Name..." maxlength="50"></textarea>
+        <textarea id="commentbox" class="commentbox" name="comment" placeholder="Your comment..." maxlength="300"></textarea>
+        <input id="submit" class="submit" type="submit" value="Submit">
         </div>
 
-        <div class="commentlist">
-
+        <div class="commentlist" id="commentlist">
+            <!-- Populated by JS -->
         </div>
     </div>
 <script src="site.js" defer></script>
