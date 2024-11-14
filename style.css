@@ -18,6 +18,11 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     align-items: center;
     padding: 10px 20px;
 }
+
+.logo img{
+    height: 1.2em;
+    vertical-align: center;
+}
 /* the style for the first 3 links*/
 
 .link {
@@ -226,3 +231,34 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     }
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95em;
+}
+
+.form textarea {
+    resize: none;
+}
+.form .name {
+    width: 45%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 1em;
+}
+
+.form .comment {
+    height: 5em;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form .submit {
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
