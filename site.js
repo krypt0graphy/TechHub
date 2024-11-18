@@ -144,7 +144,6 @@ async function submitComment() {
     /* new doc with ID CXX, author, current date, comment body*/
     const author = document.getElementById("author").value;
     const commentBody = document.getElementById("commentbox").value;
-    const date = new Date().toLocaleDateString()
     const timestamp = firebase.firestore.Timestamp.fromDate(new Date);
 
     const commentsRef = db.collection('GeneralComments');
@@ -162,15 +161,18 @@ async function submitComment() {
         console.log(newId)
     }
 
-    await commentsRef.doc(newId).set({
-        author: author,
-        date: timestamp,
-        comment: commentBody,
-        id: newId
-    });
-
-    alert("Comment submitted!");
-    clearComment();
+    if(!author == '' && !commentBody == '') {
+        await commentsRef.doc(newId).set({
+            author: author,
+            date: timestamp,
+            comment: commentBody,
+            id: newId
+        });
+        alert("Comment submitted!");
+        clearComment();
+    } else {
+        alert("Please enter a valid name and comment");
+    }
 }
 
 async function submitContactForm() {
@@ -192,13 +194,18 @@ async function submitContactForm() {
         newId="F01"
     }
 
-    await contactFormsRef.doc(newId).set({
-        name: name,
-        email: email,
-        enquiry: enquiry,
-        id: newId
-    });
-    alert("Enquiry submitted!");
+    if(!name == '' && !email == '' && !enquiry == '') {
+        await contactFormsRef.doc(newId).set({
+            name: name,
+            email: email,
+            enquiry: enquiry,
+            id: newId
+        });
+        alert("Enquiry submitted!");
+    } else {
+        alert("Please fill out all the fields");
+    }
+    
 } 
 
 async function displayComments() {
