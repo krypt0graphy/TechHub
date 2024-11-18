@@ -145,6 +145,7 @@ async function submitComment() {
     const author = document.getElementById("author").value;
     const commentBody = document.getElementById("commentbox").value;
     const date = new Date().toLocaleDateString()
+    const timestamp = firebase.firestore.Timestamp.fromDate(new Date);
 
     const commentsRef = db.collection('GeneralComments');
     const latestDoc = await commentsRef.orderBy('id', 'desc').limit(1).get();
@@ -163,7 +164,7 @@ async function submitComment() {
 
     await commentsRef.doc(newId).set({
         author: author,
-        date: date,
+        date: timestamp,
         comment: commentBody,
         id: newId
     });
@@ -222,7 +223,7 @@ async function displayComments() {
 
         const dateSpan = document.createElement('span');
         dateSpan.className = 'date'
-        dateSpan.textContent = commentDoc.date;
+        dateSpan.textContent = commentDoc.date.toDate().toLocaleDateString();
 
         const commentBody = document.createElement('p');
         commentBody.className = 'commentbody';
