@@ -108,18 +108,20 @@ async function displayPostById(postId) {
         if (!selectedPost.empty) {
             const post = doc.data();
 
-            document.getElementById('post-title').textContent = post.title || 'No Title';
-            document.getElementById('post-date').textContent = post.date ? post.date.toDate().toLocaleDateString() : 'No Date';
-            let postContent = post.content.replaceAll('\\n', '<br>');
-            document.getElementById('content').innerHTML = postContent|| 'No Content Available';
             const selectedPostDiv = document.getElementById('selected-post');
 
             if (post.image) {
                 const imgElem = document.createElement('img');
                 imgElem.id = 'post-image';
                 imgElem.src = post.image;
-                selectedPostDiv.appendChild(imgElem);
+                selectedPostDiv.insertBefore(imgElem, document.getElementById('post-title'));
             }
+
+            
+            document.getElementById('post-title').textContent = post.title || 'No Title';
+            document.getElementById('post-date').textContent = post.date ? post.date.toDate().toLocaleDateString() : 'No Date';
+            let postContent = post.content.replaceAll('\\n', '<br>');
+            document.getElementById('content').innerHTML = postContent|| 'No Content Available';
 
             selectedPostDiv.scrollIntoView({ behavior: 'smooth' });
         } else {
@@ -171,8 +173,7 @@ async function submitComment() {
 }
 
 async function submitContactForm() {
-    const firstname = document.getElementById('firstname').value;
-    const lastname = document.getElementById('lastname').value;
+    const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const enquiry = document.getElementById('enquiry').value;
 
@@ -191,8 +192,7 @@ async function submitContactForm() {
     }
 
     await contactFormsRef.doc(newId).set({
-        firstname: firstname,
-        lastname: lastname,
+        name: name,
         email: email,
         enquiry: enquiry,
         id: newId

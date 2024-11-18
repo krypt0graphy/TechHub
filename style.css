@@ -79,14 +79,13 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 }
 
 .post {
-    border: 2px solid #1e2a3a;
     padding: 15px;
     border-radius: 5px;
     background-color: #8fa9c2;
     text-align: center;
     color: #1e2a3a;
     height: 400px;
-    box-shadow: inset -6px -6px #8fa9c2, inset 6px 6px #8fa9c2, inset 8px 8px #1e2a3a, inset -8px -8px #1e2a3a
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)
 }
 
 .post img {
@@ -94,6 +93,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     height: 70%;
     object-fit: cover;
     border-radius: 8px 8px 0 0;
+    border-bottom: 2px solid #1e2a3a;
 }
 
 .post h3,
@@ -126,6 +126,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     top: 0;
     bottom: 0;
     height: 100%;
+    padding-right: 10px;
 }
 
 @media (max-width: 768px) {
@@ -149,7 +150,6 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 
 #selected-post {
     width: 80%;
-    border: 2px solid #1e2a3a;
     border-radius: 5px;
     padding: 10px;
     background-color: #8fa9c2;
@@ -158,7 +158,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     display: block;
     margin: 20px 20px 20px 10px;
     overflow-y: scroll;
-    box-shadow: inset -6px -6px #8fa9c2, inset 6px 6px #8fa9c2, inset 8px 8px #1e2a3a, inset -8px -8px #1e2a3a
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)
 }
 @media (max-width: 768px) {
     #selected-post {
@@ -172,8 +172,11 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 }
 
 #selected-post img {
-    width: 70%;
-    height: auto;
+    width: 100%;
+    height: 40%;
+    object-fit: contain;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 2px solid #1e2a3a;
 }
 
 #selected-post h3 {
@@ -250,10 +253,11 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     overflow-wrap: break-word;
     text-align: left;
     position: relative;
-    border: 2px solid #1e2a3a;
     border-radius: 5px;
     padding: 10px;
     background-color: #8fa9c2;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)
+
 }
 
 .comment blockquote {
@@ -305,40 +309,38 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     font-size: 0.95em;
 }
 
-.contact-form .info {
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-}
 
-.contact-form .info .entry-box {
+
+.contact-form .entry-box {
     display: flex;
     flex-direction: column;
-}
-
-.contact-form .info .entry-box:last-child {
+    width: 65%;
+    margin-left: auto;
     margin-right: auto;
 }
 
-.contact-form .info .entry-box:first-child {
-    margin-left: auto;
+textarea {
+    resize: none;
+    border: none;
+    padding: 10px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)
+}
+.contact-form textarea {
+    height: 0.95em;
 }
 
-.contact-form textarea {
-    resize: none;
-}
 
 #enquiry {
     resize: vertical;
     height: 6em;
-    max-height: 20em;
-    width: 65%;
+    max-height: 18em;
     margin-bottom: 20px;
 }
 
 .contact-links {
+    position: fixed;
     height: 8%;
-    max-width: 100%;
+    width: 100%;
     border: 0;
     bottom: 0;
     border-top: solid 2px #1e2a3a;
@@ -346,6 +348,8 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
     gap: 50px;
 }
 .contact-links a {
