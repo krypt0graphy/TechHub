@@ -280,7 +280,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 .comment .commentbody {
     text-align: left;
     margin-top: 0;
-    font-size: 0.85em;
+    font-size: 1.2em;
 }
 
 @media (max-width: 600px) {
@@ -327,6 +327,7 @@ textarea {
     padding: 10px;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14);
     border-radius: 5px;
+    font: 0.85em "Trebuchet MS", sans-serif;
 }
 .contact-form textarea {
     height: 0.95em;
