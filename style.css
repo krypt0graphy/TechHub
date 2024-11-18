@@ -108,6 +108,10 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     text-overflow: ellipsis;
 }
 
+.post small {
+    color: #30425a;
+}
+
 .posts-list {
     display: block;
     min-height: 100%;
@@ -178,6 +182,10 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     margin-bottom: 2px;
 }
 
+#selected-post small {
+    color: #30425a;
+}
+
 #content {
     text-align: left;
     margin-left: 5px;
@@ -238,13 +246,14 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 
 .comment {
     margin: 10px auto;
-    max-width: 70%;
+    max-width: 50%;
     overflow-wrap: break-word;
     text-align: left;
     position: relative;
     border: 2px solid #1e2a3a;
     border-radius: 5px;
     padding: 10px;
+    background-color: #8fa9c2;
 }
 
 .comment blockquote {
@@ -259,7 +268,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 .comment .date {
     text-align: right;
     font-size: 0.7em;
-    color: slategray;
+    color: #30425a;
     margin-left: 5px;
 }
 .comment .commentbody {
@@ -274,15 +283,83 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     }
 
     .form .submit {
-        width: 30%; /* Larger submit button on smaller screens */
+        width: 30%; 
     }
 
     .comment {
-        max-width: 100%;
+        max-width: 90%;
         font-size: 0.9em;
     }
 
     .comment .date {
         font-size: 0.6em;
     }
+}
+
+
+.contact-form {
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.contact-form .info {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.contact-form .info .entry-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form .info .entry-box:last-child {
+    margin-right: auto;
+}
+
+.contact-form .info .entry-box:first-child {
+    margin-left: auto;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+#enquiry {
+    resize: vertical;
+    height: 6em;
+    max-height: 20em;
+    width: 65%;
+    margin-bottom: 20px;
+}
+
+.contact-links {
+    height: 8%;
+    max-width: 100%;
+    border: 0;
+    bottom: 0;
+    border-top: solid 2px #1e2a3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 50px;
+}
+.contact-links a {
+    color: #1e2a3a;
+    text-decoration: none;
+}
+
+.contact-links a:first-child {
+    margin-left: auto;
+}
+.contact-links a:last-child {
+    margin-right: auto;
+}
+
+.contact-links svg {
+    color: #1e2a3a;
 }

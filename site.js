@@ -95,7 +95,6 @@ async function populateList() {
     } catch (error) {
         console.error('Error populating list', error)
     }
-
 }
 
 async function displayPostById(postId) {
@@ -169,8 +168,37 @@ async function submitComment() {
 
     alert("Comment submitted!");
     clearComment();
-
 }
+
+async function submitContactForm() {
+    const firstname = document.getElementById('firstname').value;
+    const lastname = document.getElementById('lastname').value;
+    const email = document.getElementById('email').value;
+    const enquiry = document.getElementById('enquiry').value;
+
+    const contactFormsRef = db.collection('ContactForms');
+
+
+    const latestDoc = await contactFormsRef.orderBy('id', 'desc').limit(1).get();
+
+    let newId;
+    if (!latestDoc.empty) {
+        const lastId = latestDoc.docs[0].id;
+        const lastNum = parseInt(lastId.replace('F', ''), 10);
+        newId = 'F' + String(lastNum + 1).padStart(2, '0');
+    } else {
+        newId="F01"
+    }
+
+    await contactFormsRef.doc(newId).set({
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        enquiry: enquiry,
+        id: newId
+    });
+    alert("Enquiry submitted!");
+} 
 
 async function displayComments() {
     const commentList = document.getElementById('commentlist');
@@ -226,6 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
         getLatestPosts();
         document.getElementById('submit').addEventListener('click', submitComment);
         displayComments();
+    }
+    if(page == 'contact') {
+        document.getElementById('submit').addEventListener('click', submitContactForm);
     }
     if (postId) {
         displayPostById(postId);
