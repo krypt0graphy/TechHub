@@ -370,3 +370,12 @@ textarea {
 .contact-links svg {
     color: #1e2a3a;
 }
+
+.submit {
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14);
+    font: 0.85em "Trebuchet MS", sans-serif;
+}
