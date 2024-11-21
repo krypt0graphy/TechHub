@@ -12,6 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 console.log("Firebase initialized:", firebase.apps.length > 0);
 const db = firebase.firestore();
+var rtdb = firebase.database()
 
 async function getLatestPosts() {
 
@@ -21,22 +22,14 @@ async function getLatestPosts() {
             .limit(3)
             .get();
 
-        console.log("Documents fetched:", querySnapshot.size);
         const posts = querySnapshot.docs.map(doc => doc.data());
 
-        console.log("Fetched Posts:", posts); // Debugging: Check the posts array
 
         posts.forEach((post, index) => {
-            console.log(`Post ${index + 1}:`, post);  // Log post data
-            console.log("Index:", index); // Log the index to confirm it's working
 
             const imgElem = document.getElementById(`post-image-${index + 1}`);
             const titleElem = document.getElementById(`post-title-${index + 1}`);
             const dateElem = document.getElementById(`post-date-${index + 1}`);
-
-            console.log("Image Element:", imgElem);
-            console.log("Title Element:", titleElem);
-            console.log("Date Element:", dateElem);
 
             if (imgElem) imgElem.src = post.image || 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/1022px-Placeholder_view_vector.svg.png?20220519031949';
             if (titleElem) titleElem.textContent = post.title || 'No Title';
@@ -154,11 +147,8 @@ async function submitComment() {
         const lastId = latestDoc.docs[0].id;
         const lastNum = parseInt(lastId.replace('C', ''), 10);
         newId = 'C' + String(lastNum + 1).padStart(2, '0');
-        console.log(newId)
-
     } else {
         newId="C01"
-        console.log(newId)
     }
 
     if(!author == '' && !commentBody == '') {
@@ -201,6 +191,13 @@ async function submitContactForm() {
             enquiry: enquiry,
             id: newId
         });
+
+        rtdb.ref('contacts').push({
+            name: name,
+            email: email,
+            enquiry: enquiry,
+            id: newId
+        })
         alert("Enquiry submitted!");
     } else {
         alert("Please fill out all the fields");
