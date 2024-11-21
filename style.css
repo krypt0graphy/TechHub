@@ -332,6 +332,18 @@ textarea {
     height: 0.95em;
 }
 
+.contact-form .submit {
+    width: 10%;
+}
+@media (max-width:768px) {
+    .contact-form .submit {
+        width: 50%;
+    }
+    .contact-form .entry-box {
+        width: 80%;
+    }
+    
+}
 
 #enquiry {
     resize: vertical;

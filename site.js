@@ -197,7 +197,7 @@ async function submitContactForm() {
             email: email,
             enquiry: enquiry,
             id: newId
-        })
+        });
         alert("Enquiry submitted!");
     } else {
         alert("Please fill out all the fields");
