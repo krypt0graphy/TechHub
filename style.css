@@ -281,6 +281,12 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     margin-top: 0;
     font-size: 1.2em;
 }
+.comment .emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.1em;
+}
 
 @media (max-width: 600px) {
     .form {

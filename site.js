@@ -231,7 +231,7 @@ async function displayComments() {
 
         const commentBody = document.createElement('p');
         commentBody.className = 'commentbody';
-        commentBody.textContent = commentDoc.comment;
+        commentBody.innerHTML = twemoji.parse(commentDoc.comment);
 
         blockquote.appendChild(authorSpan);
         blockquote.appendChild(dateSpan);
