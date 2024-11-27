@@ -102,7 +102,7 @@ async function displayPostById(postId) {
             const post = doc.data();
 
             const selectedPostDiv = document.getElementById('selected-post');
-
+            selectedPostDiv.style.display="block";
             if (post.image) {
                 const imgElem = document.createElement('img');
                 imgElem.id = 'post-image';
