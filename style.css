@@ -79,7 +79,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 
 .post {
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 20px;
     background-image: linear-gradient(#93adff, #9199fd);
     text-align: center;
     color: #1e2a3a;
