@@ -15,7 +15,7 @@ const db = firebase.firestore();
 var rtdb = firebase.database()
 
 async function getLatestPosts() {
-
+    //Grab the 3 latest posts and display them
     try {
         const querySnapshot = await db.collection('Blogposts')
             .orderBy('date', 'desc')
@@ -48,6 +48,7 @@ async function getLatestPosts() {
 
 
 async function populateList() {
+    //Fill the posts list
     try {
         const querySnapshot = await db.collection('Blogposts')
             .orderBy('date', 'desc')
@@ -91,6 +92,7 @@ async function populateList() {
 }
 
 async function displayPostById(postId) {
+    //Display posts from their ID
     try {
         const selectedPost = await db.collection('Blogposts')
             .where('id', '==', postId)
@@ -127,6 +129,7 @@ async function displayPostById(postId) {
 
 
 function clearComment() {
+    //Reload the page and empty the comment box
     location.reload()
     document.getElementById("author").value = '';
     document.getElementById("commentbox").value = '';
@@ -134,7 +137,7 @@ function clearComment() {
 
 
 async function submitComment() {
-    /* new doc with ID CXX, author, current date, comment body*/
+    //New document on firestore with the comment information
     const author = document.getElementById("author").value;
     const commentBody = document.getElementById("commentbox").value;
     const timestamp = firebase.firestore.Timestamp.fromDate(new Date);
@@ -166,6 +169,7 @@ async function submitComment() {
 }
 
 async function submitContactForm() {
+    //New document in firestore and rtdb
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const enquiry = document.getElementById('enquiry').value;
@@ -206,6 +210,7 @@ async function submitContactForm() {
 } 
 
 async function displayComments() {
+    //Display all comments
     const commentList = document.getElementById('commentlist');
     commentList.innerHTML = '';
 
