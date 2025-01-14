@@ -259,7 +259,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     overflow-wrap: break-word;
     text-align: left;
     position: relative;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 10px;
     background-image: linear-gradient(#93adff, #9199fd);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14)
@@ -293,7 +293,7 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     vertical-align: -0.1em;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .form {
         width: 95%;
     }

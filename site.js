@@ -128,8 +128,8 @@ async function displayPostById(postId) {
 
 function clearComment() {
     location.reload()
-    author = '';
-    commentBody = '';
+    document.getElementById("author").value = '';
+    document.getElementById("commentbox").value = '';
 }
 
 
