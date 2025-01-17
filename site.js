@@ -208,7 +208,6 @@ async function submitContactForm() {
     }
     
 } 
-
 async function displayComments() {
     //Display all comments
     const commentList = document.getElementById('commentlist');

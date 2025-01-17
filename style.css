@@ -5,8 +5,6 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     background-color: #ecf0f1;
 }
 
-
-/* Navigation bar style */
 .navbar {
     height: 8%;
     max-width: 100%;
@@ -23,7 +21,6 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     height: 2em;
     vertical-align: center;
 }
-/* the style for the first 3 links*/
 
 .link {
     margin: 3%;
@@ -31,19 +28,16 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
     gap: 15px;
     border-radius: 8px;
 }
-/* style for the link buttons */
 
 .navbar a {
     color: #1e2a3a;
     padding: 10px;
     text-decoration: none;
 }
-/* on hover change color of button */
 
 .navbar a:hover {
     color: #3000a2;
 }
-/* active tab's button is underlined, hardcoded into the html */
 
 .navbar a.active {
     font-weight: bold;
@@ -209,6 +203,10 @@ body {font: 1.2em "Trebuchet MS", sans-serif;
 @media (max-width: 768px) {
     .posts-page {
         flex-direction: column;
+        height: auto;
+    }
+    #selected-post img {
+        width: 100%;
         height: auto;
     }
 }
